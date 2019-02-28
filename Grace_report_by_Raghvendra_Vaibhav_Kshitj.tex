@@ -113,7 +113,7 @@ $\mathrm{V(\phi,\lambda,r)} \xrightleftharpoons[Synthesis]{Analysis} \mathrm{C_{
 
 \newpage
 \chapter{Least Squares}
-Equation no. 2 is linear equation and we solve it by Least Square Method
+Equation (2.3) is linear equation and we solve it by Least Square Method
 
 Now, we can further simplify our equation as follows:
 
@@ -122,8 +122,8 @@ V(\phi,\lambda,r)=\frac{GM}{r}\sum_{l,m}^{} \left(\frac{R}{r}\right)^{l+1}\sum_{
 \end{equation}
 
 where, \\
- when   j=c \centerline{$  Y_{lm}(\phi,\lambda)= P_{lm}(cos\theta) cosm\lambda $}\\ 
-j=s \centerline{$Y_{lm} (\phi,\lambda)= P_{lm}(cos\theta) sinm\lambda$
+ when j=c \centerline{$Y_{lm}(\phi,\lambda)= P_{lm}(cos\theta) cosm\lambda $}\\ 
+when j=s \centerline{$Y_{lm} (\phi,\lambda)= P_{lm}(cos\theta) sinm\lambda$
 }
 \\
 and the $K_{lm}$ is the vector containing the coefficients $ C_{lm}$ and $ S_{lm}$
@@ -324,27 +324,30 @@ In principle:\\
 5) Evaluate surface mass grids by , put in convenient units and Plot the disturbing field plot but before that it needs some filtering to remove noises in the data. \\
 
 
-\section{Filtering}
+\chapter{Filtering}
 So, here we are at primary objective of our project i.e. Filtering of raw GRACE Mission data. Actually, the raw data contains various noises which we try to minimize using suitable filters.
 \\
 Basically filtering is nothing but the weighted average of the raw data. But,we can also use mode or median instead of taking average. 
-\paragraph{Some terminologies:} 
-\subparagraph{1.Calculation Point:}
-This is the point in grid which is being filtered in a certain step or the point for which we are calculating the filtered (with minimized noise) field in a particular step. 
-\subparagraph{2.Data Points:}
-These are the remaining points of the grid which are contributing to field at calculation point as per the weights assigned to them.
-\\
- \textbf{ Objectives of Filtering and the things needs to be taken care of:\\} 
- $ \bullet$To reduce the noise.\\
- $ \bullet $ Assigning weights such that they help in retaining much of calculation point value or the originality of calculation point.  \\
-  $ \bullet $ Normalization of weights.
-  
+
+\subsection{Terminologies} 
+	\begin{description}
+	\item[$\bullet$]\textbf{Calculation Point: }This is the point in grid which is being filtered in a certain step or the point for which we are calculating the filtered (with minimized noise) field in a particular step.\\ 
+	\item[$\bullet$]\textbf{Data Points: }These are the remaining points of the grid which are contributing to field at calculation point as per the weights assigned to them.
+	\end{description}  
+
+\subsection{Objectives of Filtering and the things needs to be taken care of} 
+	\begin{description}
+	\item[$\bullet$]To reduce the noise.
+	\item[$\bullet$]Assigning weights such that they help in 		retaining much of calculation point value or the 				originality of calculation point.
+	\item[$\bullet$]Normalization of weights.
+	\end{description}  
  
- \paragraph{Overall Concept:}
+\subsection{Overall Concept}
  Here, at a certain step we are taking a calculation point then, we are calculating the weighted average as per the defined weight matrix, this is our filtered field value of this calculation point. In this way, we move our calculation point one by one to every point of grid and at the same time all the other points of grid as the data points.     
  
  
- \textbf{ Covariance} -- It is a measure of the joint variability of two random variables.The sign of the covariance shows the tendency in the linear relationship between the variables.
+\subsection{Covariance}
+It is a measure of the joint variability of two random variables.The sign of the covariance shows the tendency in the linear relationship between the variables.
  
 
 $$
@@ -356,6 +359,11 @@ $$
  
  As an example, the variation in a collection of random points in two-dimensional space cannot be characterized fully by a single number, nor would the variances in the ${\displaystyle x}$ x and $ {\displaystyle y}$ y directions contain all of the necessary information; a ${\displaystyle 2\times 2}$ $ 2\times$ 2 matrix would be necessary to fully characterize the two-dimensional variation.
 
+\begin{figure}[!h]
+	\advance\leftskip-2cm
+    \includegraphics[scale=0.43]{Filter}
+    \caption{--caption--}
+\end{figure}
 
 \chapter{APPENDIX}
 
