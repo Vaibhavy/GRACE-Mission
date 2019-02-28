@@ -321,6 +321,32 @@ In principle:\\
 4) Make coefficient differences to average ($\Delta C_{lm}, \Delta S_{lm}$)\\
 5) Evaluate surface mass grids by , put in convenient units and Plot the disturbing field plot but before that it needs some filtering to remove noises in the data. \\
 \section{Filtering}
-
+So, here we are at primary objective of our project i.e. Filtering of raw GRACE Mission data. Actually, the raw data contains various noises which we try to minimize using suitable filters.
+\\
+Basically filtering is nothing but the weighted average of the raw data. But,we can also use mode or median instead of taking average. 
+\paragraph{Some terminologies:} 
+\subparagraph{1.Calculation Point:}
+This is the point in grid which is being filtered in a certain step or the point for which we are calculating the filtered (with minimized noise) field in a particular step. 
+\subparagraph{2.Data Points:}
+These are the remaining points of the grid which are contributing to field at calculation point as per the weights assigned to them.
+\\
+ \textbf{ Objectives of Filtering and the things needs to be taken care of:\\} 
+ $ \bullet$To reduce the noise.\\
+ $ \bullet $ Assigning weights such that they help in retaining much of calculation point value or the originality of calculation point.  \\
+  $ \bullet $ Normalization of weights.
+  
+ 
+ \paragraph{Overall Concept:}
+ Here, at a certain step we are taking a calculation point then, we are calculating the weighted average as per the defined weight matrix, this is our filtered field value of this calculation point. In this way, we move our calculation point one by one to every point of grid and at the same time all the other points of grid as the data points.     
+ 
+ 
+ \textbf{ Covariance} -- It is a measure of the joint variability of two random variables.The sign of the covariance shows the tendency in the linear relationship between the variables.
+$$
+{\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}},} {\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}}}
+$$
+ A covariance matrix, is a matrix whose element in the i, j position is the covariance between the i-th and j-th elements of a random vector.
+ Intuitively, the covariance matrix generalizes the notion of variance to multiple dimensions.
+ 
+ As an example, the variation in a collection of random points in two-dimensional space cannot be characterized fully by a single number, nor would the variances in the ${\displaystyle x}$ x and $ {\displaystyle y}$ y directions contain all of the necessary information; a ${\displaystyle 2\times 2}$ $ 2\times$ 2 matrix would be necessary to fully characterize the two-dimensional variation.
 
 \end{document}
