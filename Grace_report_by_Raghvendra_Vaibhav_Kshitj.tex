@@ -59,10 +59,9 @@ Panel 4: When both spacecraft are over water again, the trailing spacecraft is s
 \section{Potential Fields}
 \begin{itemize}
 \item They are conservative (path independent fields) in nature.     
-\item Also known as Harmonics.
+\item They are harmonic in nature beacause they satisfy the Laplace equation.
 \end{itemize}
-\paragraph{Harmonics:-} 
- 
+\paragraph{Harmonics:-} Those fields which follow some physical phenomenon are harmonic in nature. They are nothing but solution of Laplace equation i.e.
 \begin {equation}
 \nabla ^2V(r,\theta ,\varphi) = \left( {\underbrace {\frac{\partial ^2V }{\partial r^2} +
 \frac{2}{r}\frac{\partial V }{\partial
@@ -87,17 +86,17 @@ Gravitational Force is derivative of V and derivative of Gravitational force sho
       + \frac{\partial^2 V}{\partial y^2}
       + \frac{\partial^2 V}{\partial z^2} \right)=0 \]
 
-This Homogeneous PDE  can be solved by Method of variable separation and the solution of this is Spherical Harmonics in spherical coordinates i.e.
+This Homogeneous PDE  can be solved by Method of variable separation. When this equation is transformed into spherical co-ordinates then the solution of this equation becomes Spherical Harmonics i.e.
 
 \begin{equation}
-V(\phi,\lambda,r)=\frac{GM}{r}\sum_{l=0}^{\infty} \left(\frac{R}{r}\right)^{l+1}\sum_{m=0}^{l} \widetilde{P}_{lm}(\cos\theta)(\Delta\widetilde{C}_{lm}\cos m\lambda + \Delta\widetilde{S}_{lm}\sin m\lambda)
+V(\phi,\lambda,r)=\frac{GM}{R}\sum_{l=0}^{\infty} \left(\frac{R}{r}\right)^{l+1}\sum_{m=0}^{l} \widetilde{P}_{lm}(\cos\theta)(\widetilde{C}_{lm}\cos m\lambda + \widetilde{S}_{lm}\sin m\lambda)
 \end{equation}
 
 \paragraph{Important Functions:} 
-In the given equation P is Legendre function and the accompanying combination of sine and cosine function forms the fourier series. So, by looking at this simplified equation of gravity field, one can deduce that other things are merely constants and the gravity fields is combination of Legendre and Trigonometric functions.
-These functions i.e. Legendre and trigonometric function also known as fourier functions are Orthogonal to each other. This is the property which helps in Stochastic filtering of raw data in the form of coefficients$ S_{lm}$ and $C_{lm} $which are discussed as follows:  
-\paragraph{Stochastic Coefficients:} 
-Here, the constant appearing $C_{lm}$and $S_{lm}$ , they are the raw data which we get after refining process of original data which we get from the satellite. But this data contains sometimes huge amount of noises because of several other factors. Stochastic filtering is basically the process of minimizing this noise from the data. For this, we use this Method of Least squares for minimization of noise.
+In the given equation $P_{lm}$ is Assosiated Legendre function and the accompanying combination of sine and cosine functions form the Fourier series. So, by looking at this simplified equation of gravity field, one can deduce that the gravity fields is combination of Legendre and Trigonometric functions.
+These functions i.e. Legendre and trigonometric function also known as Fourier series are Orthogonal to each other. This is the property which helps in Stochastic filtering of raw data in the form of coefficients$ S_{lm}$ and $C_{lm} $which are discussed as follows:  
+\paragraph{Spherical Harmonic Coefficients:} 
+Here, the appearing $C_{lm}$and $S_{lm}$ are the raw data which we get after refining process of original data which we get from the satellite. But this data contains sometimes huge amount of noises because of several other factors. Stochastic filtering is basically the process of minimizing this noise from the data. For this, we use this Method of Least squares for minimization of noise.
 
 Based upon the direction, there are generally two processes which we carry out :
 
