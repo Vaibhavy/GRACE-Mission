@@ -1,20 +1,20 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage{mathtools}
 \usepackage{graphicx}
 \graphicspath{ {/home/vaibhav/Documents/Images/} }
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \usepackage{hyperref}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage{amsmath}
-\begin{document}
-%test1
 
+\title{\centerline{Stochastic Filtering of} \centerline{GRACE Mission Data}}
+\author{Vaibhav Yadav, Kshitij Khanna, Raghvendra Singh}
+\date{\today}
+
+\begin{document}
 %\includegraphics[scale=.44]{grace1}
-\newpage
-\section*{\centerline{Stochastic Filtering of} \centerline{GRACE Mission Data}}
-\section{Introduction to GRACE Mission}
+\maketitle
+\chapter{Introduction to GRACE Mission}
  The gravity recovery and climate experiment (GRACE) satellite mission was launched
 on the 17$^{th}$ of March in 2002 as a joint partnership between the National Aeronautics
 and Space Administration (NASA) and the Deutsches Zentrum für Luft- und Raumfahrt
@@ -36,26 +36,31 @@ GRACE consists of two identical spacecraft that fly about 220 kilometers (137 mi
 The gravity variations studied by GRACE include: changes due to surface and deep currents in the ocean; runoff and ground water storage on land masses; exchanges between ice sheets or glaciers and the ocean; and variations of mass within Earth. Another goal of the mission is to create a better profile of Earth's atmosphere. GRACE results are making a huge contribution to the goals of NASA's Science Mission Directorate, Earth Observation System (EOS) and global climate change studies.
 
 
-
+\begin{figure}[!h]
+\centering
 \includegraphics[scale=0.6]{Grace}
-\begin{center}
-\textbf{As the satellites orbit Earth, one following the other, these moving masses alter the gravitational pull below them, changing the distance between them very slightly\\\textit{(Credit: NASA/JPL-Caltech )}}\\
-\end{center}
+\caption{As the satellites orbit Earth, one following the other, these moving masses alter the gravitational pull below them, changing the distance between them very slightly %\newline %
+\textit{(Credit: NASA/JPL-Caltech )}%
+}
+\label{fig:GRACE}
+\end{figure}
 
 %\\
-A simplified example of how the distance between the GRACE satellites changes as they pass from the Caribbean Sea across Colombia and Peru (which have higher mass than the oceans) to the Pacific Ocean. Panel 1: When both spacecraft are over the ocean, the distance between them is relatively constant. 
 A simplified example of how the distance between the GRACE satellites changes as they pass from the Caribbean Sea across Colombia and Peru (which have higher mass than the oceans) to the Pacific Ocean.
+\begin{itemize}
 
-Panel 1: When both spacecraft are over the ocean, the distance between them is relatively constant.
+	\item[Panel 1:] When both spacecraft are over the ocean, the distance between them is relatively constant.
 
-Panel 2: When the leading spacecraft encounters land, the land's higher gravity pulls it away from the trailing spacecraft, which is still over water.
+	\item[Panel 2:] When the leading spacecraft encounters land, the land's higher gravity pulls it away from the trailing spacecraft, which is still over water.
 
-Panel 3: Once the second satellite also encounters the land, it too is pulled toward the higher mass and consequently toward the leading spacecraft. As the lead spacecraft moves past the denser land mass, it is pulled back slightly by the higher gravity of the land.
+	\item[Panel 3:] Once the second satellite also encounters the land, it too is pulled toward the higher mass and consequently toward the leading spacecraft. As the lead spacecraft moves past the denser land mass, it is pulled back slightly by the higher gravity of the land.
 
-Panel 4: When both spacecraft are over water again, the trailing spacecraft is slowed by land before returning to its original distance behind the leading spacecraft.
+	\item[Panel 4:] When both spacecraft are over water again, the trailing spacecraft is slowed by land before returning to its original distance behind the leading spacecraft.
 
-\newpage
-\section{Potential Fields}
+\end{itemize}
+
+%\newpage
+\chapter{Potential Fields}
 \begin{itemize}
 \item They are conservative (path independent fields) in nature.     
 \item They are harmonic in nature beacause they satisfy the Laplace equation.
@@ -107,7 +112,7 @@ $\mathrm{V(\phi,\lambda,r)} \xrightleftharpoons[Synthesis]{Analysis} \mathrm{C_{
 }
 
 \newpage
-\section{Least Squares}
+\chapter{Least Squares}
 Equation no. 2 is linear equation and we solve it by Least Square Method
 
 Now, we can further simplify our equation as follows:
@@ -148,8 +153,8 @@ then,
  \widetilde{X}= {\Bigg( {Q_{\tilde{x}\tilde{x}}}^{-1} + \frac{\lambda^T}{2}{Q_{xx}}^{-1} \Bigg)}^{-1} {Q_{\tilde{x}     \tilde{x}}}^{-1}  \tilde{x}
  \end{equation}
 
-\newpage
-\section{Spherical Harmonic Synthesis}
+%\newpage
+\chapter{Spherical Harmonic Synthesis}
 
 \subsection{Single Point}
 Here, Extracting $K_{lm}$ from the sample data given in the SHBundle software we wrote the matlab code to get the gravity field at any point of our choice.
@@ -159,24 +164,22 @@ The results were comparable to the original gravity field for R=6400 which is th
 After writing the code for single point we wrote code for the whole globe by dividing the globe into grid of 360*180 with the gap of pi/180 between each of the grid point.
 and we observed that field had basically three bands and there were other little variations in between these bigger bands. The results were as expected, the major three bands should come out as the gravitational fields near the poles is different from the gravitational fields near the equator. and there is a gradual pattern of field from north pole to equator and similarly from equator to south pole as the mass of earth varies in the same way.
 
-\begin{figure}
-    \advance\leftskip-3cm
-    \includegraphics[scale=0.35]{Normal_grid}
+\begin{figure}[!h]
+    % \advance\leftskip-3cm
+    \centering
+    \includegraphics[width=0.96\linewidth]{Normal_grid}
     \caption{Normal Gravity Field Potential}
     
-    \subparagraph{Important Functions used:}   
-
-\paragraph{$Plm(l,m,\theta)$:-} This function is used to calculate the respective legendre functions for different values of degree, order and theta for different points.
-
 \end{figure}
 
-
-
-
-
+\subsection{Implementation of program for finding Normal Gravity Field Potential:}
+\begin{description}
+\item[$\bullet$]
+\item[$\bullet$]Functions used for implementation of above process are mentioned in section 1 of Appendix.
+\end{description}   
 
 \newpage
-\section{Disturbance Field}
+\chapter{Disturbance Field}
 \subsection{What is a  geoid?}
 The \textbf{geoid} is defined as equipotential surface of the earth’s gravity field, which coincides with the mean sea level of the oceans. This definition assumes the water masses to be temporally invariant and only affected by the gravity. Thus it can be imagined as surface of the idealized oceans which is continued underneath the continents. According to Gauss-Listing, it is defined as the equipotential surface of the Earth’s gravity field which best fits, in a least squares sense, global mean sea level. This is actually the adopted definition of the National Geodetic Survey (NGS).\\
 
@@ -232,15 +235,7 @@ the spherical harmonic coefficients $\widetilde{C}_{lm}$ and $\widetilde{S}_{lm}
 \item[$\bullet$]Mean of all these monthly data is obtained
 \item[$\bullet$]From one of the monthly data this mean is substracted. This gives the disturbance field of that month
 \item[$\bullet$]Similarly disturbance fields for all the months of a particular year is obtained and plotted on world map
-\item[$\bullet$]Following functions from the SHBundle are used:
-	\begin{description}
-	\item[$\ast$clm2sc:]Removing the header part, the raw 			klm matrix is obtained which contains four columns, $L, 	M, C_{lm}, S_{lm}$. This functions converts this matrix 	into a SC Triangle format
-	\item[$\ast$sc2cs:]The SC Triangle matrix obtained in 			above step is converted into CS Square matrix using 			this function. Now this square matrix contains data of 			one month in square matrix format
-	\item[$\ast$readitsg:]Using this function, all the ITSG 	files downloaded from the above given URL are read at 			once and a matrix is generated.
-	\item[$\ast$getgracemean:]The matrix obtained in above 			step is sent as input to this function and it returns a 	sqaure matrix which is the average value of all the 			ITSG data
-	\item[$\ast$gshs\_:]The difference matrix of data of 			one month and the mean data is sent as input to this 			function and in return this function returns a global 			field
-	\item[$\ast$mapfield:]This function takes the global 			field obtained by gshs\_\\ function as input and plot 			it on the world map. This is how final disturbance 			field is plotted on a world map
-	\end{description}
+\item[$\bullet$]Functions used for implementation of above process are mentioned in section 2 of Appendix.
 \end{description}
 
 
@@ -250,16 +245,17 @@ the spherical harmonic coefficients $\widetilde{C}_{lm}$ and $\widetilde{S}_{lm}
     \caption{Plot for Disturbance Field of every month of year 2010}
 \end{figure}
 
-\begin{figure}
 
-\section{Analysis in spectral domain}
+
+\chapter{Analysis in spectral domain}
 From Grace we get a set of real-valued SH-coefficients, complete to maximum degree L
 Clm coefficients as matrix in the form\\
 \[
 \begin{bmatrix}
     l_{11}       & m_{12} & C_{13} & S_{1n} \\
     l_{21}       & m_{22} & C_{23} & S_{2n} \\
-    \hdotsfor{4} \\
+    %\hdotsfor{4} \\
+    \ldots & \ldots & \ldots & \ldots \\
     l_{d1}       & m_{d2} & C_{d3} & S_{dn}
 \end{bmatrix}
 \]\\
@@ -283,19 +279,26 @@ Then the SC-format stores the coefficients in the following $(L + 1)\times (2L +
 The upper left and right corners should be filled with zeros. For some \\ numerical purposes,
 it could be handy though, to use a small number $epsilon$, e.g. $\epsilon = 10^{-20}$.
 The name SC-format is chosen since the $S_{lm}$-coefficients are at the LHS and the $C_{lm}$-coefficients at the RHS of the matrix\\
-$EXAMPLE: clm2sc\quad(\,clm,\, max_lm,\, 30, gcoef2sc,\, false\,)\,;$
+
+\subsection{Implementation of the program for finding\\Triangular plot of $C_{lm}$ and $S_{lm}$:}
+\begin{description}
+\item[$\bullet$]
+\item[$\bullet$]Functions used for implementation of above process are mentioned in section 3 of Appendix.
+\end{description}
+
 %Using Sctriplot function SCTRIPLOT plots the triangles of SH coefficients stored in SC-format. If stored in CS format it is converted to SC-format before plotting.
 %Plot the figure
 % The sectorial and near sectorial terms above degree 60 are of a degraded quality as compared to other terms in all cases
 
-	\advance\leftskip-2cm
-    \includegraphics[scale=1]{SC}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[width=0.96\linewidth]{SC}
     \caption{Triangular plot of $C_{lm}$ and  $S_{lm}$}
     \newpage
 \end{figure}
 
 \newpage
-\section{Spherical Harmonics}
+\chapter{Spherical Harmonics}
 \subsection{Visualising the spherical harmonics}
 Visualising the spherical harmonics is a little tricky because they are complex and defined in terms of angular co-ordinates, ($\theta,\phi$).\\
 One way is to plot the real part only on the unit sphere.We plotted it on
@@ -312,5 +315,33 @@ In principle:\\
 4) Make coefficient differences to average ($\Delta C_{lm}, \Delta S_{lm}$)\\
 5) Evaluate surface mass grids by , put in convenient units and Plot the disturbing field plot but before that it needs some filtering to remove noises in the data. \\
 
+
+\chapter{APPENDIX}
+
+\subsection{Functions from SHBundle used for obtaining \\Normal Gravity Field Potential}
+\begin{itemize}
+	\item[Plm(l,m,$\theta$): ] This function is used to calculate the respective legendre functions for different values of degree, order and theta for different points.
+\end{itemize}
+
+\subsection{Functions from SHBundle used for obtaining \\Disturbance Potential}
+\begin{itemize}
+	\item[clm2sc : ] Removing the header part, the raw 			klm matrix is obtained which contains four columns, $L, 	M, C_{lm}, S_{lm}$. This functions converts this matrix 	into a SC Triangle format
+	
+	\item[sc2cs:]The SC Triangle matrix obtained in 			above step is converted into CS Square matrix using 			this function. Now this square matrix contains data of 			one month in square matrix format.
+	
+	\item[readitsg:]Using this function, all the ITSG 	files downloaded from the above given URL are read at 			once and a matrix is generated.
+	
+	\item[getgracemean:]The matrix obtained in above 			step is sent as input to this function and it returns a 	sqaure matrix which is the average value of all the 			ITSG data.
+	
+	\item[gshs\_:]The difference matrix of data of 			one month and the mean data is sent as input to this 			function and in return this function returns a global 			field.
+	
+	\item[mapfield:]This function takes the global 			field obtained by gshs\_\\ function as input and plot 			it on the world map. This is how final disturbance 			field is plotted on a world map.
+	
+\end{itemize}
+
+\subsection{Functions from SHBundle used for obtaining \\Triangular plot of $C_{lm}$ and $S_{lm}$}
+\begin{itemize}
+	\item[clm2sc: ] The function takes input 5 arguments: (clm, $max_{lm}$, 30, gcoef2sc, false)
+\end{itemize}
 
 \end{document}
