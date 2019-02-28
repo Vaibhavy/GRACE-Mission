@@ -127,13 +127,13 @@ From least squares we know the solution of this equation:
 \begin{equation}
 \tilde{x} =(A^T A)^{-1} A^T L
 \end{equation}
-let $ Q_{ll}$ be the dispersion operator
+let $ Q_{ll}$ be the dispersion operator of L i.e. $D\{L\}=Q_{ll}$
 then,
 
 \begin{equation}
 \tilde{x} =(A^T Q_{ll}^{-1} A)^{-1} A^T Q_{ll}^{-1} L
 \end{equation}
- we can further improve our results by constrained equations
+ we can further improve our results by constraining the solution with prior information
  
  and the results for that are as follows:
  
@@ -145,7 +145,7 @@ then,
  let the filtered x be $\widetilde{X}$
  so, 
  \begin{equation}
- \widetilde{X}= \Bigg( Q_{\tilde{x}\tilde{x}} + \frac{\lambda^T}{2}Q_{xx}^{-1} \Bigg) Q_{\tilde{x}     \tilde{x}}  \tilde{x} 
+ \widetilde{X}= {\Bigg( {Q_{\tilde{x}\tilde{x}}}^{-1} + \frac{\lambda^T}{2}{Q_{xx}}^{-1} \Bigg)}^{-1} {Q_{\tilde{x}     \tilde{x}}}^{-1}  \tilde{x}
  \end{equation}
 
 \section{Spherical Harmonic Synthesis}
