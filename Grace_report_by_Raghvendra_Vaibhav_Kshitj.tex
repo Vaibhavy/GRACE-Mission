@@ -290,8 +290,9 @@ The name SC-format is chosen since the $S_{lm}$-coefficients are at the LHS and 
 
 \subsection{Implementation of the program for finding\\Triangular plot of $C_{lm}$ and $S_{lm}$:}
 \begin{description}
-\item[$\bullet$]
-\item[$\bullet$]Functions used for implementation of above process are mentioned in section 3 of Appendix.
+\item[$\bullet$] The raw data matrix which contain columns corresponding to $l$ values, $m$ values, $C_{lm}$ and $S_{lm}$ is converted into SC-format as shown above.
+\item[$\bullet$] Then this SC-format matrix in plotted using a degree versus order graph as shown in the figure (6.1).
+\item[$\bullet$] Functions used for implementation of above process are mentioned in section 3 of Appendix.
 \end{description}
 
 %Using Sctriplot function SCTRIPLOT plots the triangles of SH coefficients stored in SC-format. If stored in CS format it is converted to SC-format before plotting.
@@ -374,23 +375,24 @@ $$
 
 \subsection{Functions from SHBundle used for obtaining \\Disturbance Potential}
 \begin{itemize}
-	\item[clm2sc : ] Removing the header part, the raw 			klm matrix is obtained which contains four columns, $L, 	M, C_{lm}, S_{lm}$. This functions converts this matrix 	into a SC Triangle format
+	\item[clm2sc: ] Removing the header part, the raw 			klm matrix is obtained which contains four columns, $L, 	M, C_{lm}, S_{lm}$. This functions converts this matrix 	into a SC Triangle format
 	
-	\item[sc2cs:]The SC Triangle matrix obtained in 			above step is converted into CS Square matrix using 			this function. Now this square matrix contains data of 			one month in square matrix format.
+	\item[sc2cs: ]The SC Triangle matrix obtained in 			above step is converted into CS Square matrix using 			this function. Now this square matrix contains data of 			one month in square matrix format.
 	
-	\item[readitsg:]Using this function, all the ITSG 	files downloaded from the above given URL are read at 			once and a matrix is generated.
+	\item[readitsg: ]Using this function, all the ITSG 	files downloaded from the above given URL are read at 			once and a matrix is generated.
 	
-	\item[getgracemean:]The matrix obtained in above 			step is sent as input to this function and it returns a 	sqaure matrix which is the average value of all the 			ITSG data.
+	\item[getgracemean: ]The matrix obtained in above 			step is sent as input to this function and it returns a 	sqaure matrix which is the average value of all the 			ITSG data.
 	
-	\item[gshs\_:]The difference matrix of data of 			one month and the mean data is sent as input to this 			function and in return this function returns a global 			field.
+	\item[gshs\_: ]The difference matrix of data of 			one month and the mean data is sent as input to this 			function and in return this function returns a global 			field.
 	
-	\item[mapfield:]This function takes the global 			field obtained by gshs\_\\ function as input and plot 			it on the world map. This is how final disturbance 			field is plotted on a world map.
+	\item[mapfield: ]This function takes the global 			field obtained by gshs\_\\ function as input and plot 			it on the world map. This is how final disturbance 			field is plotted on a world map.
 	
 \end{itemize}
 
 \subsection{Functions from SHBundle used for obtaining \\Triangular plot of $C_{lm}$ and $S_{lm}$}
 \begin{itemize}
-	\item[clm2sc: ] The function takes input 5 arguments: (clm, $max_{lm}$, 30, gcoef2sc, false)
+	\item[clm2sc: ] The function takes input 3 arguments: (clm, max\_{lm}, 30), where\\clm is the raw data matrix of the form [$l$, $m$, $C_{lm}$, $S_{lm}$]\\max\_{lm} represents that only coefficients up to a degree = order = max\_lm are used. \\And in returns back the SC-format matrix.
+	\item[sctriplot: ] The function 2 inputs:\\Above generated SC-format matrix is taken as input; and\\Maximum degree of spherical harmonic expansion.\\Using these inputs the plots the degree versus order SC-triangle plot.
 \end{itemize}
 
 \end{document}
