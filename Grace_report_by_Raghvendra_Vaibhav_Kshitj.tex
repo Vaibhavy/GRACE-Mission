@@ -110,13 +110,13 @@ V }{\partial r}} \right)} + \frac{1}{r^2\sin \theta }\frac{\partial
 
 we have our gravitational potential .i.e. $V(\phi,\lambda,r)$
 
-Gravitational Force is derivative of V and derivative of Gravitational force should be equal to zero and this gives us the following Homogeneous 2nd degree Partial Differential Equation .i.e
+Gravitational Force is derivative of V and derivative of Gravitational Force should be equal to zero and this gives us the following Homogeneous 2nd degree Partial Differential Equation .i.e
 
    \[ \left( \frac{\partial^2 V}{\partial x^2}
       + \frac{\partial^2 V}{\partial y^2}
       + \frac{\partial^2 V}{\partial z^2} \right)=0 \]
 
-This Homogeneous PDE  can be solved by Method of variable separation. When this equation is transformed into spherical co-ordinates then the solution of this equation becomes Spherical Harmonics i.e.
+This Homogeneous PDE  can be solved by method of Variable Separation. This equation is transformed into spherical co-ordinates and the solution of this equation is Spherical Harmonics i.e.
 
 \begin{equation}
 V(\phi,\lambda,r)=\frac{GM}{R}\sum_{l=0}^{\infty} \left(\frac{R}{r}\right)^{l+1}\sum_{m=0}^{l} \widetilde{P}_{lm}(\cos\theta)(\widetilde{C}_{lm}\cos m\lambda + \widetilde{S}_{lm}\sin m\lambda)
@@ -124,17 +124,17 @@ V(\phi,\lambda,r)=\frac{GM}{R}\sum_{l=0}^{\infty} \left(\frac{R}{r}\right)^{l+1}
 
 \section{Important Functions} 
 In the given equation $P_{lm}$ is Assosiated Legendre function and the accompanying combination of sine and cosine functions form the Fourier series. So, by looking at this simplified equation of gravity field, one can deduce that the gravity fields is combination of Legendre and Trigonometric functions.
-These functions i.e. Legendre and trigonometric function also known as Fourier series are Orthogonal to each other. This is the property which helps in Stochastic filtering of raw data in the form of coefficients$ S_{lm}$ and $C_{lm} $which are discussed as follows:  
+These functions i.e. Legendre and Trigonometric functions which are also known as Fourier series are Orthogonal to each other. This is the property which helps in Stochastic filtering of raw data in the form of coefficients$ S_{lm}$ and $C_{lm} $which are discussed in the following section:  
 
 \section{Spherical Harmonic Coefficients} 
-Here, the appearing $C_{lm}$and $S_{lm}$ are the raw data which we get after refining process of original data which we get from the satellite. But this data contains sometimes huge amount of noises because of several other factors. Stochastic filtering is basically the process of minimizing this noise from the data. For this, we use this Method of Least squares for minimization of noise.
+Here, the appearing $C_{lm}$and $S_{lm}$ coefficients are the raw data which we get after refining process of original data which we get from the satellite. But this data contains sometimes huge amount of noises because of several other factors. Stochastic filtering is basically the process of minimizing this noise from the data. For this, we use this Method of Least Squares for minimization of noise.
 
 Based upon the direction, there are generally two processes which we carry out:
 
 \newpage
 
 \subsection{Analysis}  In equation(2), calculation the stochastic coefficients $C_{lm} $ and $S_{lm}$ utilizing the gravity field data i.e. $V(\phi,\lambda,r)$ is known as analysis.
- \subsection{Synthesis} This the exact opposite process of Analysis. Here, the spherical harmonic coefficients i.e.  $C_{lm} $ and $S_{lm}$ are given and the field values i.e. $V(\phi,\lambda,r)$ are obtained. \\
+ \subsection{Synthesis} This the exact opposite process of Analysis. Here, the spherical harmonic coefficients i.e.  $C_{lm} $ and $S_{lm}$ are given and the field values i.e. $V(\phi,\lambda,r)$ are obtained.So, here we are performing synthesis in this work. \\
 
 \centerline{
 $\mathrm{V(\phi,\lambda,r)} \xrightleftharpoons[Synthesis]{Analysis} \mathrm{C_{lm}, S_{lm}}$
@@ -192,14 +192,14 @@ then,
 
 %\newpage
 \chapter{Spherical Harmonic Synthesis}
-
+First of all, we performed Spherical Harmonic Synthesis for the following two cases:
 \section{Single Point}
 Here, Extracting $K_{lm}$ from the sample data given in the SHBundle software we wrote the matlab code to get the gravity field at any point of our choice.
 The results were comparable to the original gravity field for R=6400 which is the radius of the earth.
 
 \section{ Grid of Points}
 
-After writing the code for single point we wrote code for the whole globe by dividing the globe into grid of 360*180 with the gap of pi/180 between each of the grid point.
+After writing the code for single point we wrote the code for the whole globe by dividing the globe into grid of 360*180 with the gap of pi/180 between each of the grid point.
 and we observed that field had basically three bands and there were other little variations in between these bigger bands. The results were as expected, the major three bands should come out as the gravitational fields near the poles is different from the gravitational fields near the equator. and there is a gradual pattern of field from north pole to equator and similarly from equator to south pole as the mass of earth varies in the same way.
 
 \begin{figure}[!h]
