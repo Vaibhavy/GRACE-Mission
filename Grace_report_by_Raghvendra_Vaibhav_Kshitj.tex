@@ -139,6 +139,7 @@ $\mathrm{V(\phi,\lambda,r)} \xrightleftharpoons[Synthesis]{Analysis} \mathrm{C_{
 
 \newpage
 \chapter{Least Squares}
+
 Equation (3.3) is a linear equation and we solve it by Least Squares Method
 
 Now, we can further simplify our equation as follows:
@@ -155,13 +156,13 @@ when j=s \centerline{$Y_{lm} (\phi,\lambda)= P_{lm}(cos\theta) sinm\lambda$
 and the $K_{lm}$ is the vector containing the coefficients $ C_{lm}$ and $ S_{lm}$
 \\ 
 
-So, this can be estimated as simple vector equation:
+So, the above equation can be estimated as simple vector equation as follows:
 \begin{equation}
   \mathbf{L} =  \mathbf{Ax}  
 \end{equation}
-where, A is the design matrix
+where, A is known as the design matrix
 
-From least squares we know the solution of this equation:
+From least squares method, we know the solution of the above equation:
 
 \begin{equation}
 \tilde{x} =(A^T A)^{-1} A^T L
@@ -186,6 +187,10 @@ then,
  \begin{equation}
  \widetilde{X}= {\Bigg( {Q_{\tilde{x}\tilde{x}}}^{-1} + \frac{\lambda^T}{2}{Q_{xx}}^{-1} \Bigg)}^{-1} {Q_{\tilde{x}     \tilde{x}}}^{-1}  \tilde{x}
  \end{equation}
+ \\
+ here,we get  $ {Q_{\tilde{x}\tilde{x}}}$ after the Spherical Harmonic Analysis of covarience matrix.
+ And $Q_{xx} $ we know from experience.
+
 
 %\newpage
 \chapter{Spherical Harmonic Synthesis}
