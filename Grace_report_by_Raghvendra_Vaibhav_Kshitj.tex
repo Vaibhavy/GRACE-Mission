@@ -73,7 +73,7 @@ A simplified example of how the distance between the GRACE satellites changes as
 \item They are conservative (path independent fields) in nature.     
 \item They are harmonic in nature beacause they satisfy the Laplace equation.
 \end{itemize}
-\paragraph{Harmonics:-} Those fields which follow some physical phenomenon are harmonic in nature. They are nothing but solution of Laplace equation i.e.
+\section{Harmonics} Those fields which follow some physical phenomenon are harmonic in nature. They are nothing but solution of Laplace equation i.e.
 \begin {equation}
 \nabla ^2V(r,\theta ,\varphi) = \left( {\underbrace {\frac{\partial ^2V }{\partial r^2} +
 \frac{2}{r}\frac{\partial V }{\partial
@@ -88,7 +88,7 @@ V }{\partial r}} \right)} + \frac{1}{r^2\sin \theta }\frac{\partial
 \nabla ^2V(r,\theta ,\varphi) = 0
 \end{equation}
 
-\paragraph{Basic Question:-} How do we arrive at this equation??
+\paragraph{Basic Question:} How do we arrive at this equation??
 
 we have our gravitational potential .i.e. $V(\phi,\lambda,r)$
 
@@ -104,16 +104,19 @@ This Homogeneous PDE  can be solved by Method of variable separation. When this 
 V(\phi,\lambda,r)=\frac{GM}{R}\sum_{l=0}^{\infty} \left(\frac{R}{r}\right)^{l+1}\sum_{m=0}^{l} \widetilde{P}_{lm}(\cos\theta)(\widetilde{C}_{lm}\cos m\lambda + \widetilde{S}_{lm}\sin m\lambda)
 \end{equation}
 
-\paragraph{Important Functions:} 
+\section{Important Functions} 
 In the given equation $P_{lm}$ is Assosiated Legendre function and the accompanying combination of sine and cosine functions form the Fourier series. So, by looking at this simplified equation of gravity field, one can deduce that the gravity fields is combination of Legendre and Trigonometric functions.
 These functions i.e. Legendre and trigonometric function also known as Fourier series are Orthogonal to each other. This is the property which helps in Stochastic filtering of raw data in the form of coefficients$ S_{lm}$ and $C_{lm} $which are discussed as follows:  
-\paragraph{Spherical Harmonic Coefficients:} 
+
+\section{Spherical Harmonic Coefficients} 
 Here, the appearing $C_{lm}$and $S_{lm}$ are the raw data which we get after refining process of original data which we get from the satellite. But this data contains sometimes huge amount of noises because of several other factors. Stochastic filtering is basically the process of minimizing this noise from the data. For this, we use this Method of Least squares for minimization of noise.
 
-Based upon the direction, there are generally two processes which we carry out :
+Based upon the direction, there are generally two processes which we carry out:
 
-\subparagraph{Analysis:- }  In equation(2), calculation the stochastic coefficients $C_{lm} $ and $S_{lm}$ utilizing the gravity field data i.e. $V(\phi,\lambda,r)$ is known as analysis.
- \subparagraph{Synthesis:- } This the exact opposite process of Analysis. Here, the spherical harmonic coefficients i.e.  $C_{lm} $ and $S_{lm}$ are given and the field values i.e. $V(\phi,\lambda,r)$ are obtained. \\
+\newpage
+
+\subsection{Analysis}  In equation(2), calculation the stochastic coefficients $C_{lm} $ and $S_{lm}$ utilizing the gravity field data i.e. $V(\phi,\lambda,r)$ is known as analysis.
+ \subsection{Synthesis} This the exact opposite process of Analysis. Here, the spherical harmonic coefficients i.e.  $C_{lm} $ and $S_{lm}$ are given and the field values i.e. $V(\phi,\lambda,r)$ are obtained. \\
 
 \centerline{
 $\mathrm{V(\phi,\lambda,r)} \xrightleftharpoons[Synthesis]{Analysis} \mathrm{C_{lm}, S_{lm}}$
@@ -121,7 +124,7 @@ $\mathrm{V(\phi,\lambda,r)} \xrightleftharpoons[Synthesis]{Analysis} \mathrm{C_{
 
 \newpage
 \chapter{Least Squares}
-Equation (2.3) is linear equation and we solve it by Least Square Method
+Equation (3.3) is a linear equation and we solve it by Least Squares Method
 
 Now, we can further simplify our equation as follows:
 
@@ -139,7 +142,7 @@ and the $K_{lm}$ is the vector containing the coefficients $ C_{lm}$ and $ S_{lm
 
 So, this can be estimated as simple vector equation:
 \begin{equation}
-  L= Ax  
+  \mathbf{L} =  \mathbf{Ax}  
 \end{equation}
 where, A is the design matrix
 
@@ -152,7 +155,7 @@ let $ Q_{ll}$ be the dispersion operator of L i.e. $D\{L\}=Q_{ll}$
 then,
 
 \begin{equation}
-\tilde{x} =(A^T Q_{ll}^{-1} A)^{-1} A^T Q_{ll}^{-1} L
+\bar{x} =(A^T Q_{ll}^{-1} A)^{-1} A^T Q_{ll}^{-1} L
 \end{equation}
  we can further improve our results by constraining the solution with prior information
  
@@ -172,10 +175,11 @@ then,
 %\newpage
 \chapter{Spherical Harmonic Synthesis}
 
-\subsection{Single Point}
+\section{Single Point}
 Here, Extracting $K_{lm}$ from the sample data given in the SHBundle software we wrote the matlab code to get the gravity field at any point of our choice.
 The results were comparable to the original gravity field for R=6400 which is the radius of the earth.
-\subsection{ Grid of Points}
+
+\section{ Grid of Points}
 
 After writing the code for single point we wrote code for the whole globe by dividing the globe into grid of 360*180 with the gap of pi/180 between each of the grid point.
 and we observed that field had basically three bands and there were other little variations in between these bigger bands. The results were as expected, the major three bands should come out as the gravitational fields near the poles is different from the gravitational fields near the equator. and there is a gradual pattern of field from north pole to equator and similarly from equator to south pole as the mass of earth varies in the same way.
@@ -188,7 +192,7 @@ and we observed that field had basically three bands and there were other little
     
 \end{figure}
 
-\subsection{Implementation of program for finding Normal Gravity Field Potential:}
+\section{Implementation of program for finding Normal Gravity Field Potential:}
 \begin{description}
 \item[$\bullet$]
 \item[$\bullet$]Functions used for implementation of above process are mentioned in section 1 of Appendix.
@@ -196,10 +200,10 @@ and we observed that field had basically three bands and there were other little
 
 \newpage
 \chapter{Disturbance Field}
-\subsection{What is a  geoid?}
+\section{What is a  geoid?}
 The \textbf{geoid} is defined as equipotential surface of the earth’s gravity field, which coincides with the mean sea level of the oceans. This definition assumes the water masses to be temporally invariant and only affected by the gravity. Thus it can be imagined as surface of the idealized oceans which is continued underneath the continents. According to Gauss-Listing, it is defined as the equipotential surface of the Earth’s gravity field which best fits, in a least squares sense, global mean sea level. This is actually the adopted definition of the National Geodetic Survey (NGS).\\
 
-\subsection{What is a normal field?}
+\section{What is a normal field?}
 It is obvious, that this definition makes an exact analytical mathematical description of the geoid nearly impossible. Therefore, a new surface is invented, the so called \textbf{normal field}. This field is an ellipsoidal approximation to the real gravity field. It is usually described through 4 parameters:
 \begin{description}
 \item[$\bullet$]Semi major axis $a$
@@ -210,7 +214,7 @@ It is obvious, that this definition makes an exact analytical mathematical descr
 Depending on the application, there are many different realizations of such a normal field. For global tasks, one would choose an ellipsoid which approximates the real geoid
 best, whereas for local applications, an ellipsoid is chosen which optimally approximates the geoid in a local area.\\
 
-\subsection{What is a disturbing potential?}
+\section{What is a disturbing potential?}
 The potential that deviates from the normal potential is called \textbf{disturbing potential}. In other words, the gravity potential can be described using the normal potential with
 potential deviations from W treated as disturbances:
 \begin{equation} 
@@ -244,7 +248,7 @@ the spherical harmonic coefficients $\widetilde{C}_{lm}$ and $\widetilde{S}_{lm}
 \\The study of the small changes happening in the gravitational potential of the Earth is done by studying disturbance field which is obtained by substracting the ellipsoidal shape from the actual geoid shape of the Earth.\\\\
 
 
-\subsection{Implementation of the program for finding\\Disturbance Potential of the Earth:}
+\section{Implementation of the program for finding Disturbance Potential of the Earth}
 \begin{description}
 \item[$\bullet$]We collected ITGS data of various years from April'02 to June'17 from the site:\\
 \url{ftp://ftp.tugraz.at/outgoing/ITSG/GRACE/ITSG-Grace2016/monthly/monthly_n60}
@@ -258,7 +262,7 @@ the spherical harmonic coefficients $\widetilde{C}_{lm}$ and $\widetilde{S}_{lm}
 \begin{figure}
     \advance\leftskip-3cm
     \includegraphics[scale=0.19]{All}
-    \caption{Plot for Disturbance Field of every month of year 2010}
+    \caption{Plot for Disturbing Potential of every month of the year 2010}
 \end{figure}
 
 
@@ -296,7 +300,7 @@ The upper left and right corners should be filled with zeros. For some \\ numeri
 it could be handy though, to use a small number $epsilon$, e.g. $\epsilon = 10^{-20}$.
 The name SC-format is chosen since the $S_{lm}$-coefficients are at the LHS and the $C_{lm}$-coefficients at the RHS of the matrix\\
 
-\subsection{Implementation of the program for finding\\Triangular plot of $C_{lm}$ and $S_{lm}$:}
+\section{Implementation of the program for finding Triangular plot of $C_{lm}$ and $S_{lm}$:}
 \begin{description}
 \item[$\bullet$] The raw data matrix which contain columns corresponding to $l$ values, $m$ values, $C_{lm}$ and $S_{lm}$ is converted into SC-format as shown above.
 \item[$\bullet$] Then this SC-format matrix in plotted using a degree versus order graph as shown in the figure (6.1).
@@ -316,7 +320,7 @@ The name SC-format is chosen since the $S_{lm}$-coefficients are at the LHS and 
 
 \newpage
 \chapter{Spherical Harmonics}
-\subsection{Visualising the spherical harmonics}
+\section{Visualising the spherical harmonics}
 Visualising the spherical harmonics is a little tricky because they are complex and defined in terms of angular co-ordinates, ($\theta,\phi$).\\
 One way is to plot the real part only on the unit sphere.We plotted it on
 python using the $sph\_harm$ package available in $scipy$ module.
@@ -324,7 +328,7 @@ Following are the plots for corresponding l(degree) and m(order):
 % plot the figures
 Red area shows positive values while Blue area shows negative values.
 
-\subsection{How  to get mass changes from GRACE?}
+\section{How  to get mass changes from GRACE?}
 In principle:\\
 1) Get a program for spherical harmonic grid synthesis.\\
 2) Download GRACE Release 5 (”best”) coefficients from CSR or GFZ \\(max degree 60) monthly solutions.\\
@@ -366,24 +370,24 @@ So, here we are at primary objective of our project i.e. Filtering of raw GRACE 
 \\
 Basically filtering is nothing but the weighted average of the raw data. But,we can also use mode or median instead of taking average. 
 
-\subsection{Terminologies} 
+\section{Terminologies} 
 	\begin{description}
 	\item[$\bullet$]\textbf{Calculation Point: }This is the point in grid which is being filtered in a certain step or the point for which we are calculating the filtered (with minimized noise) field in a particular step.\\ 
 	\item[$\bullet$]\textbf{Data Points: }These are the remaining points of the grid which are contributing to field at calculation point as per the weights assigned to them.
 	\end{description}  
 
-\subsection{Objectives of Filtering and the things needs to be taken care of} 
+\section{Objectives of Filtering and the things needs to be taken care of} 
 	\begin{description}
 	\item[$\bullet$]To reduce the noise.
 	\item[$\bullet$]Assigning weights such that they help in 		retaining much of calculation point value or the 				originality of calculation point.
 	\item[$\bullet$]Normalization of weights.
 	\end{description}  
  
-\subsection{Overall Concept}
+\section{Overall Concept}
  Here, at a certain step we are taking a calculation point then, we are calculating the weighted average as per the defined weight matrix, this is our filtered field value of this calculation point. In this way, we move our calculation point one by one to every point of grid and at the same time all the other points of grid as the data points.     
  
  
-\subsection{Covariance}
+\section{Covariance}
 It is a measure of the joint variability of two random variables.The sign of the covariance shows the tendency in the linear relationship between the variables.
  
 
@@ -404,12 +408,12 @@ $$
 
 \chapter{APPENDIX}
 
-\subsection{Functions from SHBundle used for obtaining \\Normal Gravity Field Potential}
+\section{Functions from SHBundle used for obtaining Normal Gravity Field Potential}
 \begin{itemize}
 	\item[Plm(l,m,$\theta$): ] This function is used to calculate the respective legendre functions for different values of degree, order and theta for different points.
 \end{itemize}
 
-\subsection{Functions from SHBundle used for obtaining \\Disturbance Potential}
+\section{Functions from SHBundle used for obtaining Disturbance Potential}
 \begin{itemize}
 	\item[clm2sc: ] Removing the header part, the raw 			klm matrix is obtained which contains four columns, $L, 	M, C_{lm}, S_{lm}$. This functions converts this matrix 	into a SC Triangle format
 	
@@ -425,7 +429,7 @@ $$
 	
 \end{itemize}
 
-\subsection{Functions from SHBundle used for obtaining \\Triangular plot of $C_{lm}$ and $S_{lm}$}
+\section{Functions from SHBundle used for obtaining Triangular plot of $C_{lm}$ and $S_{lm}$}
 \begin{itemize}
 	\item[clm2sc: ] The function takes input 3 arguments: (clm, max\_{lm}, 30), where\\clm is the raw data matrix of the form [$l$, $m$, $C_{lm}$, $S_{lm}$]\\max\_{lm} represents that only coefficients up to a degree = order = max\_lm are used. \\And in returns back the SC-format matrix.
 	\item[sctriplot: ] The function 2 inputs:\\Above generated SC-format matrix is taken as input; and\\Maximum degree of spherical harmonic expansion.\\Using these inputs the plots the degree versus order SC-triangle plot.
