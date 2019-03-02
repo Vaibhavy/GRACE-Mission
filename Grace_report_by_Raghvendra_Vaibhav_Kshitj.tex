@@ -197,7 +197,7 @@ The results were comparable to the original gravity field for R=6400 which is th
 \section{Grid of Points}
 
 After writing the code for single point we wrote the code for the whole globe by dividing the globe into grid of 360*180 with the gap of pi/180 between each of the grid point.
-and we observed that field had basically three bands and there were other little variations in between these bigger bands. The results were as expected, the major three bands should come out as the gravitational fields near the poles is different from the gravitational fields near the equator. and there is a gradual pattern of field from north pole to equator and similarly from equator to south pole as the mass of earth varies in the same way.
+and we observed that field had basically three bands and there were other little variations in between these bigger bands. The results were as expected, the major three bands should come out as the gravitational fields near the poles is different from the gravitational fields near the equator. and there is a gradual pattern of field from north pole to equator and similarly from equator to south pole as the mass of earth varies in the same way.\\
 
 \begin{figure}[!h]
     % \advance\leftskip-3cm
@@ -397,6 +397,13 @@ $$
 \end{figure}
 
 \chapter{APPENDIX}
+
+\section{Two-Point Function}
+The weighting functions provide weights to the data
+points on the sphere depending on the direction and distance of the data points with respect to the
+point where the filter is located, called the calculation point. Since the provision of a weight requires
+the knowledge of the calculation point and the data points, the weight functions, and eventually
+the filter functions, are two-point functions.
 
 \section{Functions from SHBundle used for obtaining Normal Gravity Field Potential}
 \begin{itemize}
