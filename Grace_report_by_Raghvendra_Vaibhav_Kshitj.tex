@@ -6,19 +6,38 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{titling}
 
-\title{\centerline{Stochastic Filtering of} \centerline{GRACE Mission Data}}
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[scale=0.37]{Cover}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
+
+\title{\centerline{\textbf{Stochastic Filtering of}} \centerline{\textbf{GRACE Mission Data}}}
+
 \author{Vaibhav Yadav, Kshitij Khanna, Raghvendra Singh}
 \date{\today}
 
 \begin{document}
-%\includegraphics[scale=.44]{grace1}
+
+
+
+
 \maketitle
 
 
 \chapter{Abstract}
-The GRACE misssion first was first launched in 2002. After processing the raw data from the GRACE satellites, it provides us the spherical harmonics coefficients which we use for the gravity field estimations. Initially, this data was assumed to be of high accurcay, but later it was found to contain huge amount of noises which leads to faulty estimations of gravity fields.\\
-In this project, we are investigating the Stochastic filtering technique to minimize the noises   
+The GRACE misssion first was first launched in 2002. The GRACE satellites provide us the raw data which is processed and the spherical harmonics coefficients which we use for the gravity field estimations, are obtained. Initially, this data was assumed to be of high accurcay, but later it was found to contain huge amount of noises which leads to faulty estimations of gravity fields.\\
+In this project, we are investigating the Stochastic filtering technique to minimize the noises.\\
+The central idea behind these filters is the moving weighted averaging using weighting windows
+defined on the sphere. The filter functions belong to a broad class of functions called the two-point
+functions, similar to the covariance functions. The weighting functions provide weights to the data
+points on the sphere depending on the direction and distance of the data points with respect to the
+point where the filter is located, called the calculation point. Since the provision of a weight requires
+the knowledge of the calculation point and the data points, the weight functions, and eventually
+the filter functions, are two-point functions
 
 
 \newpage
@@ -34,7 +53,6 @@ deviations cause a change in the inter-satellite range, which is measured with v
 accuracy from the K-band measurement unit. The measured inter-satellite range can
 be transformed into changes in the Earth’s gravity field (Han, 2003), which is described
 with the Stokes coefficients $C_{lm}$ and $S_{lm}$.
-
 
 
 The GRACE mission was selected as the second mission under the NASA Earth System Science Pathfinder (ESSP) Program in May 1997.The GRACE mission is accurately mapping variations in Earth's gravity field. Designed for a nominal mission lifetime of five years, GRACE is currently operating in an extended mission phase, which is expected to continue through at least 2019.
@@ -261,7 +279,7 @@ the spherical harmonic coefficients $\widetilde{C}_{lm}$ and $\widetilde{S}_{lm}
 
 \begin{figure}
     \advance\leftskip-3cm
-    \includegraphics[scale=0.19]{All}
+    \includegraphics[scale=0.17]{All}
     \caption{Plot for Disturbing Potential of every month of the year 2010}
 \end{figure}
 
@@ -313,7 +331,7 @@ The name SC-format is chosen since the $S_{lm}$-coefficients are at the LHS and 
 
 \begin{figure}[!h]
 	\centering
-    \includegraphics[width=0.96\linewidth]{SC}
+    \includegraphics[width=\linewidth]{SC}
     \caption{Triangular plot of $C_{lm}$ and  $S_{lm}$}
     \newpage
 \end{figure}
@@ -336,34 +354,6 @@ In principle:\\
 4) Make coefficient differences to average ($\Delta C_{lm}, \Delta S_{lm}$)\\
 5) Evaluate surface mass grids by , put in convenient units and Plot the disturbing field plot but before that it needs some filtering to remove noises in the data. \\
 
-\section{Filtering}
-So, here we are at primary objective of our project i.e. Filtering of raw GRACE Mission data. Actually, the raw data contains various noises which we try to minimize using suitable filters.
-\\
-Basically filtering is nothing but the weighted average of the raw data. But,we can also use mode or median instead of taking average. 
-\paragraph{Some terminologies:} 
-\subparagraph{1.Calculation Point:}
-This is the point in grid which is being filtered in a certain step or the point for which we are calculating the filtered (with minimized noise) field in a particular step. 
-\subparagraph{2.Data Points:}
-These are the remaining points of the grid which are contributing to field at calculation point as per the weights assigned to them.
-\\
- \textbf{ Objectives of Filtering and the things needs to be taken care of:\\} 
- $ \bullet$To reduce the noise.\\
- $ \bullet $ Assigning weights such that they help in retaining much of calculation point value or the originality of calculation point.  \\
-  $ \bullet $ Normalization of weights.
-  
- 
- \paragraph{Overall Concept:}
- Here, at a certain step we are taking a calculation point then, we are calculating the weighted average as per the defined weight matrix, this is our filtered field value of this calculation point. In this way, we move our calculation point one by one to every point of grid and at the same time all the other points of grid as the data points.     
- 
- 
- \textbf{ Covariance} -- It is a measure of the joint variability of two random variables.The sign of the covariance shows the tendency in the linear relationship between the variables.
-$$
-{\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}},} {\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}}}
-$$
- A covariance matrix, is a matrix whose element in the i, j position is the covariance between the i-th and j-th elements of a random vector.
- Intuitively, the covariance matrix generalizes the notion of variance to multiple dimensions.
- 
- As an example, the variation in a collection of random points in two-dimensional space cannot be characterized fully by a single number, nor would the variances in the ${\displaystyle x}$ x and $ {\displaystyle y}$ y directions contain all of the necessary information; a ${\displaystyle 2\times 2}$ $ 2\times$ 2 matrix would be necessary to fully characterize the two-dimensional variation.
 
 \chapter{Filtering}
 So, here we are at primary objective of our project i.e. Filtering of raw GRACE Mission data. Actually, the raw data contains various noises which we try to minimize using suitable filters.
