@@ -1,4 +1,5 @@
 addpath(genpath('/media/vaibhav/Vaibhav/Documents/IIT Kanpur/Project/SHBundle/'));
+addpath(genpath('/media/vaibhav/Vaibhav/Documents/IIT Kanpur/Project/Tasks/cbrewer/'));
 
 % fname = '/media/vaibhav/Vaibhav/Documents/IIT Kanpur/Project/SHBundle/ITSG Data/ITSG-Grace2016_n60_2002-04.gfc';
 % fid=fopen(fname, 'r+');
@@ -41,15 +42,36 @@ filepath='/media/vaibhav/Vaibhav/Documents/IIT Kanpur/Project/Tasks/ITSG Data.tx
 % fclose(filepath)
 
 for k = 90:101
-name=gshs_(gfc{k,9}-mn, 'sub_WGS84', false, ...
+    [f, th, lam] =gshs_(gfc{k,9}-mn, 'sub_WGS84', false, ...
                                     'gridsize', 360, ...
                                     'grid', 'block');
-h=mapfield(name, 'block', '0');
-xlabel('degree');
-ylabel('co-lattitude');
-t = datetime(2010,k-89,01);
-m = month(t,'name');
-title(['Disturbing Potential for ', m{1}]);
-%caxis
-caxis([-.2,.2])
+                                
+                                lam = lam * 180/pi;
+                                th = th * 180/pi
+                                
+     lam(lam > 180)  = lam(lam > 180) - 360;
+    [lam,indx]      = sort(lam);
+    f               = f(:,indx);
+     subplot(4,3,k-89)
+    h.img   = imagesc(lam, 90-th, f);
+h.axis  = gca();
+hold on
+load coast
+plot(long,lat,'k')
+pbaspect([2 1 1])
+axis xy
+h.cbar  = colorbar;
+    % xlabel('degree');
+    % ylabel('co-lattitude');
+    t = datetime(2010,k-89,01);
+    m = month(t,'name');
+    %title(['Disturbing Potential for ', m{1}]);
+    text(-160,-56, m{1});
+    %caxis
+    caxis([-.2,.2])
+    cmap = cbrewer('div', 'RdBu', 11);
+    colormap(cmap);
+    axis off
+    %set(h.cbar, 'Location', 'SouthOutside');
 end
+%set(h.cbar, 'Location', 'SouthOutside');
