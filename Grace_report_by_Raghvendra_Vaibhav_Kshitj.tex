@@ -36,6 +36,7 @@ be transformed into changes in the Earth’s gravity field (Han, 2003), which is
 with the Stokes coefficients $C_{lm}$ and $S_{lm}$.
 
 
+
 The GRACE mission was selected as the second mission under the NASA Earth System Science Pathfinder (ESSP) Program in May 1997.The GRACE mission is accurately mapping variations in Earth's gravity field. Designed for a nominal mission lifetime of five years, GRACE is currently operating in an extended mission phase, which is expected to continue through at least 2019.
 
 GRACE consists of two identical spacecraft that fly about 220 kilometers (137 miles) apart in a polar orbit 500 kilometers (310 miles) above Earth. GRACE maps Earth's gravity field by making accurate measurements of the distance between the two satellites, using GPS and a microwave ranging system. It is providing scientists from all over the world with an efficient and cost-effective way to map Earth's gravity field with unprecedented accuracy. The results from this mission are yielding crucial information about the distribution and flow of mass within Earth and its surroundings.
@@ -335,6 +336,34 @@ In principle:\\
 4) Make coefficient differences to average ($\Delta C_{lm}, \Delta S_{lm}$)\\
 5) Evaluate surface mass grids by , put in convenient units and Plot the disturbing field plot but before that it needs some filtering to remove noises in the data. \\
 
+\section{Filtering}
+So, here we are at primary objective of our project i.e. Filtering of raw GRACE Mission data. Actually, the raw data contains various noises which we try to minimize using suitable filters.
+\\
+Basically filtering is nothing but the weighted average of the raw data. But,we can also use mode or median instead of taking average. 
+\paragraph{Some terminologies:} 
+\subparagraph{1.Calculation Point:}
+This is the point in grid which is being filtered in a certain step or the point for which we are calculating the filtered (with minimized noise) field in a particular step. 
+\subparagraph{2.Data Points:}
+These are the remaining points of the grid which are contributing to field at calculation point as per the weights assigned to them.
+\\
+ \textbf{ Objectives of Filtering and the things needs to be taken care of:\\} 
+ $ \bullet$To reduce the noise.\\
+ $ \bullet $ Assigning weights such that they help in retaining much of calculation point value or the originality of calculation point.  \\
+  $ \bullet $ Normalization of weights.
+  
+ 
+ \paragraph{Overall Concept:}
+ Here, at a certain step we are taking a calculation point then, we are calculating the weighted average as per the defined weight matrix, this is our filtered field value of this calculation point. In this way, we move our calculation point one by one to every point of grid and at the same time all the other points of grid as the data points.     
+ 
+ 
+ \textbf{ Covariance} -- It is a measure of the joint variability of two random variables.The sign of the covariance shows the tendency in the linear relationship between the variables.
+$$
+{\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}},} {\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}}}
+$$
+ A covariance matrix, is a matrix whose element in the i, j position is the covariance between the i-th and j-th elements of a random vector.
+ Intuitively, the covariance matrix generalizes the notion of variance to multiple dimensions.
+ 
+ As an example, the variation in a collection of random points in two-dimensional space cannot be characterized fully by a single number, nor would the variances in the ${\displaystyle x}$ x and $ {\displaystyle y}$ y directions contain all of the necessary information; a ${\displaystyle 2\times 2}$ $ 2\times$ 2 matrix would be necessary to fully characterize the two-dimensional variation.
 
 \chapter{Filtering}
 So, here we are at primary objective of our project i.e. Filtering of raw GRACE Mission data. Actually, the raw data contains various noises which we try to minimize using suitable filters.
