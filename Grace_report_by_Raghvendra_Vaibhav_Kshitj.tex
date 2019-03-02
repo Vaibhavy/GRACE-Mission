@@ -194,7 +194,7 @@ First of all, we performed Spherical Harmonic Synthesis for the following two ca
 Here, Extracting $K_{lm}$ from the sample data given in the SHBundle software we wrote the matlab code to get the gravity field at any point of our choice.
 The results were comparable to the original gravity field for R=6400 which is the radius of the earth.
 
-\section{ Grid of Points}
+\section{Grid of Points}
 
 After writing the code for single point we wrote the code for the whole globe by dividing the globe into grid of 360*180 with the gap of pi/180 between each of the grid point.
 and we observed that field had basically three bands and there were other little variations in between these bigger bands. The results were as expected, the major three bands should come out as the gravitational fields near the poles is different from the gravitational fields near the equator. and there is a gradual pattern of field from north pole to equator and similarly from equator to south pole as the mass of earth varies in the same way.
@@ -215,10 +215,10 @@ and we observed that field had basically three bands and there were other little
 
 \newpage
 \chapter{Disturbance Field}
-\section{What is a  geoid?}
+\section{Geoid}
 The \textbf{geoid} is defined as equipotential surface of the earth’s gravity field, which coincides with the mean sea level of the oceans. This definition assumes the water masses to be temporally invariant and only affected by the gravity. Thus it can be imagined as surface of the idealized oceans which is continued underneath the continents. According to Gauss-Listing, it is defined as the equipotential surface of the Earth’s gravity field which best fits, in a least squares sense, global mean sea level. This is actually the adopted definition of the National Geodetic Survey (NGS).\\
 
-\section{What is a normal field?}
+\section{Normal Field}
 It is obvious, that this definition makes an exact analytical mathematical description of the geoid nearly impossible. Therefore, a new surface is invented, the so called \textbf{normal field}. This field is an ellipsoidal approximation to the real gravity field. It is usually described through 4 parameters:
 \begin{description}
 \item[$\bullet$]Semi major axis $a$
@@ -229,7 +229,7 @@ It is obvious, that this definition makes an exact analytical mathematical descr
 Depending on the application, there are many different realizations of such a normal field. For global tasks, one would choose an ellipsoid which approximates the real geoid
 best, whereas for local applications, an ellipsoid is chosen which optimally approximates the geoid in a local area.\\
 
-\section{What is a disturbing potential?}
+\section{Disturbing Potential}
 The potential that deviates from the normal potential is called \textbf{disturbing potential}. In other words, the gravity potential can be described using the normal potential with
 potential deviations from W treated as disturbances:
 \begin{equation} 
