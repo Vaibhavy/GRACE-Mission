@@ -1,37 +1,11 @@
-## Welcome to GitHub Pages
+# GRACE-Mission
 
-You can use the [editor on GitHub](https://github.com/Vaibhavy/GRACE-Mission/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+GRACE Mission files
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1.Filtered_cofficients.py
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Vaibhavy/GRACE-Mission/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+ INPUT: Provide the path for ITSG file in the code for the variable named 'file'
+ 
+ OUTPUT: Output is the list 'filtered_field' which is actually the list of filtered cofficients
+ 
+2.In order to use visualization files from visualization folder, integrate the code from visualization files with filtered_coefficients.py or directly use the notebook file in jupyter notebook(contains all the codes nothing else is needed)
